@@ -46,11 +46,14 @@
 
 /* VPFeatures 页卡悬浮效果 */
 .VPFeatures .items .item {
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
+  border-radius: 8px;
 }
 
 .VPFeatures .items .item:hover {
   transform: translateY(-5px);
+  background-color: rgba(189, 52, 254, 0.1);
+  box-shadow: 0 8px 25px rgb(190, 52, 254);
 }
 
 
