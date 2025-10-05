@@ -5,12 +5,12 @@ title: VitePress
 titleTemplate: 快速上手中文教程
 
 hero:
-  name: VitePress
-  text: "快速上手中文教程"
-  tagline: 如果你也想搭建它，那跟我一起做吧
+  name: 漫数花园
+  text: "记录数字世界"
+  tagline: 一个真正有用的人，应该是让其他人更有用
   image:
-    src: /logo.png
-    alt: VitePress
+    src: https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.png
+    alt: manshugarden
   actions:
     - theme: brand
       text: 开始
@@ -23,7 +23,7 @@ hero:
       link: /nav/
 
 features:
-  - icon: 📝
+  - icon: 🎃
     title: 专注于您的内容
     details: 只需使用 Markdown 即可轻松创建精美的文档网站
   - icon: 

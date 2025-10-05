@@ -10,13 +10,13 @@ const { rewrites } = await usePosts();
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: "VitePress",
-  description: "我的vitpress文档教程",
+  title: "漫数花园",
+  description: "记录数字世界",
   rewrites,
 
   // #region fav
   head: [
-    ['link', { rel: 'icon', href: '/logo.png' }],
+    ['link', { rel: 'icon', href: 'https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.png' }],
   ],
   // #endregion fav
 
@@ -159,7 +159,7 @@ export default defineConfig({
   //主题配置
   themeConfig: {
     //左上角logo
-    logo: '/logo.png',
+    logo: 'https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.png',
     //logo: 'https://vitejs.cn/vite3-cn/logo-with-shadow.png', //远程引用
     //siteTitle: false, //标题隐藏
 

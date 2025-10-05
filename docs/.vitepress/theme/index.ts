@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 
-// giscusTalk
-import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+// giscusTalk（已禁用）
+// import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 // 进度条
 import { NProgress } from 'nprogress-v2/dist/index.js'
 // 样式
@@ -28,8 +28,10 @@ import MyLayout from "./components/MyLayout.vue" //视图过渡
 import fluidborder from "./components/fluidborder.vue" //流体边框仅用于演示
 import backtotop from "./components/backtotop.vue" //返回顶部
 import notice from "./components/notice.vue" //公告
-import MouseClick from "./components/MouseClick.vue"
-import MouseFollower from "./components/MouseFollower.vue"
+import Copyright from "./components/Copyright.vue" // 版权信息
+// 鼠标特效组件（已禁用）
+// import MouseClick from "./components/MouseClick.vue"
+// import MouseFollower from "./components/MouseFollower.vue"
 
 // 不蒜子
 import { inBrowser } from 'vitepress'
@@ -52,6 +54,7 @@ export default {
     app.component('ArticleMetadata' , ArticleMetadata) //字数阅读时间
     app.component('Linkcard' , Linkcard) //链接卡片
     app.component('fluidborder' , fluidborder) //流体边框仅用于演示
+    app.component('Copyright' , Copyright) // 版权信息
 
     // 不蒜子
     if (inBrowser) {
@@ -111,27 +114,27 @@ export default {
       () => nextTick(() => initZoom())
     );
 
-    // giscus
-    const { frontmatter } = useData();
+    // giscus（已禁用）
+    // const { frontmatter } = useData();
 
-    // giscus配置
-    giscusTalk({
-      repo: 'Yiov/vitepress-doc', //仓库
-      repoId: 'R_kgDOGYFl1A', //仓库ID
-      category: 'General', // 讨论分类
-      categoryId: 'DIC_kwDOGYFl1M4CayLN', //讨论分类ID
-      mapping: 'pathname',
-      inputPosition: 'bottom',
-      lang: 'zh-CN',
-      }, 
-      {
-        frontmatter, route
-      },
-      //默认值为true，表示已启用，此参数可以忽略；
-      //如果为false，则表示未启用
-      //您可以使用“comment:true”序言在页面上单独启用它
-      true
-    );
+    // giscus配置（已禁用）
+    // giscusTalk({
+    //   repo: 'Yiov/vitepress-doc', //仓库
+    //   repoId: 'R_kgDOGYFl1A', //仓库ID
+    //   category: 'General', // 讨论分类
+    //   categoryId: 'DIC_kwDOGYFl1M4CayLN', //讨论分类ID
+    //   mapping: 'pathname',
+    //   inputPosition: 'bottom',
+    //   lang: 'zh-CN',
+    //   }, 
+    //   {
+    //     frontmatter, route
+    //   },
+    //   //默认值为true，表示已启用，此参数可以忽略；
+    //   //如果为false，则表示未启用
+    //   //您可以使用"comment:true"序言在页面上单独启用它
+    //   true
+    // );
 
   },
 

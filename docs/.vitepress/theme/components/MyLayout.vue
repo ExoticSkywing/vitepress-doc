@@ -4,11 +4,13 @@
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { nextTick, provide } from 'vue'
-import MouseClick from "./MouseClick.vue";
-import MouseFollower from "./MouseFollower.vue";
 import backtotop from "./backtotop.vue"
 import notice from "./notice.vue"
 import bsz from "./bsz.vue"
+import Copyright from "./Copyright.vue"
+// 鼠标特效组件（已禁用）
+// import MouseClick from "./MouseClick.vue";
+// import MouseFollower from "./MouseFollower.vue";
 
 const { isDark } = useData()
 
@@ -50,12 +52,14 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 <template>
   <DefaultTheme.Layout v-bind="$attrs">
     <template #doc-footer-before>
+      <Copyright />
       <backtotop />
     </template>
     <template #layout-top>
       <notice />
-      <MouseFollower />
-      <MouseClick />
+      <!-- 鼠标特效组件（已禁用） -->
+      <!-- <MouseFollower /> -->
+      <!-- <MouseClick /> -->
     </template>
     <template #layout-bottom>
       <bsz />
