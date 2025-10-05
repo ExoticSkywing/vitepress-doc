@@ -361,8 +361,8 @@ export default defineConfig({
 
     //页脚
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: `Copyright © 2023-${new Date().getFullYear()} 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">京****号</a>`,
+      message: '浪漫宇宙旗下知识库分享站',
+      copyright: `Copyright © 2022-${new Date().getFullYear()} | Powered by <a href="https://1yo.cc" target="_blank">浪漫宇宙</a> `,
     },
 
 
