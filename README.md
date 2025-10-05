@@ -7,4 +7,4 @@
 
 ## 访问
 
-https://vitepress.yiov.top/
+[漫数花园](https://wiki.manyuzo,com)
