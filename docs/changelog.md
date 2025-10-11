@@ -29,6 +29,15 @@ next: false
 :::
 
 
+## 2025-10-11
+
+- 更新 版本至v1.6.4
+
+- 修复 [视图过渡](./layout.md#视图过渡) 屏闪问题
+
+- 删除 看板娘，如果感兴趣可以尝试 [oh-my-live2d](https://github.com/oh-my-live2d/oh-my-live2d)
+
+
 ## 2025-6-26
 
 - 新增 [侧边栏样式美化](./style.md#侧边栏样式美化) 图标
