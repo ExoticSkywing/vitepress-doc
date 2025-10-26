@@ -20,7 +20,7 @@
   onMounted(() => {
     new Player({
       id: 'mse', //占位id
-      volume: 0, // 默认静音
+      volume: 0.8, // 默认静音
       lang: "zh", //设置中文
   
       autoplay: false, //关闭自动播放
@@ -28,7 +28,7 @@
       fluid: true,  // 流式布局，自动宽高比
       controls: true, //开启控制栏，设为false即隐藏
       leavePlayerTime: 0, //鼠标离开控制栏隐藏延时时间，默认3000ms
-      download: true, //开启下载
+      download: false, //开启下载
       keyShortcut: true, //开启热键
   
       url: props.url, //传入的url

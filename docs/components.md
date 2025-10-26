@@ -527,7 +527,7 @@ export default {
 
 更多的功能，可以自己在 [西瓜播放器的配置](https://h5player.bytedance.com/config/) 中寻找
 
-<xgplayer url="/lol.mp4" poster="/lol.png" />
+<xgplayer url="https://api.minio.1yo.cc/nebuluxe/halosparkpix/IMG_3670.MOV" poster="https://api.minio.1yo.cc/nebuluxe/halosparkpix/IMG_8205-z9us.JPG"/>
 
 
 
