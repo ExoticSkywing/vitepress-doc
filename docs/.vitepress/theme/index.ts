@@ -41,6 +41,10 @@ import bsz from "./components/bsz.vue"
 // 引入复制事件（复制后弹窗提示）
 import { useCopyEvent } from "./untils/useCopyEvent.ts"
 
+// ⬅️ 鼠标拖尾星星动画
+import "./components/guangbiaoTX/guangbiaoTX.scss"; // ⬅️ 鼠标拖尾样式scss
+import { useGuangbiaoTX } from "./components/guangbiaoTX/useGuangbiaoTX"; // ⬅️ 导入鼠标拖尾星星动画ts
+
 // 彩虹背景动画样式
 let homePageStyle: HTMLStyleElement | undefined
 
@@ -164,3 +168,8 @@ function updateHomePageStyle(value: boolean) {
     homePageStyle = undefined
   }
 }
+
+    // 🔽 鼠标拖尾星星动画
+    if (typeof window !== "undefined") {
+      useGuangbiaoTX();
+    }
