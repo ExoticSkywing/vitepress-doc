@@ -14,9 +14,15 @@ export default defineConfig({
   description: "记录数字世界",
   rewrites,
 
+  //网站地图
+  sitemap: {
+    hostname: 'https://wiki.manyuzo.com',
+  },
+
   // #region fav
   head: [
     ['link', { rel: 'icon', href: 'https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.png' }],
+    ['script', { src: '//at.alicdn.com/t/c/font_5034970_orj705e6j3.js' }]
   ],
   // #endregion fav
 
@@ -185,7 +191,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '🍉指南',
+        text: '📚 指南',  // 使用书籍 emoji 更贴切
         items: [
           {
             // 分组标题1

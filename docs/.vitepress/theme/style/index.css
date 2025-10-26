@@ -1,5 +1,6 @@
 @import './var.css';
 @import './link.css';
+@import './iconfont/symbol.css'; /* iconfont Symbol 样式 */
 @import './linkcard.css';
 @import './vp-code.css';
 @import './vp-code-title.css';
