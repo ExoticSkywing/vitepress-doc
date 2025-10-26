@@ -1568,3 +1568,5 @@ export default defineConfig({
 * 项目：https://github.com/imsyy/vitepress-theme-curve
 
 静等开源吧
+
+<update />
