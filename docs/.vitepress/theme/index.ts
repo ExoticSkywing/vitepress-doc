@@ -38,6 +38,9 @@ import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
 import bsz from "./components/bsz.vue"
 
+// 引入复制事件（复制后弹窗提示）
+import { useCopyEvent } from "./untils/useCopyEvent.ts"
+
 // 彩虹背景动画样式
 let homePageStyle: HTMLStyleElement | undefined
 
@@ -75,6 +78,8 @@ export default {
         () => updateHomePageStyle(location.pathname === '/'),
         { immediate: true },
       )
+      // 监听复制事件
+      useCopyEvent()
     }
 
   },
