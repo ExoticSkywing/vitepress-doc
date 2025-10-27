@@ -56,6 +56,33 @@
   box-shadow: 0 8px 25px rgb(190, 52, 254);
 }
 
+/* 移除 VPFeatures 图标的灰色背景 */
+.VPFeatures .VPFeature .box .icon {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+/* 如果图标有容器，也移除容器的背景 */
+.VPFeature .icon {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* 移除 features 中所有可能的图标背景（包括深色/浅色模式） */
+.vp-doc .VPFeature .icon,
+.VPFeature .vp-icon,
+.VPFeatures .icon,
+.features .icon {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* 移除图片类型的 icon 容器背景 */
+.VPFeature .image-container,
+.VPFeature .VPImage {
+  background-color: transparent !important;
+}
+
 
 /* 代码组中添加图片 */
 .rendered-md img {
