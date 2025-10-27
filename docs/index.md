@@ -9,7 +9,7 @@ hero:
   text: "记录数字世界"
   tagline: 一个真正有用的人，应该是让其他人更有用
   image:
-    src: https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.png
+    src: https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.webp
     alt: manshugarden
   actions:
     - theme: brand

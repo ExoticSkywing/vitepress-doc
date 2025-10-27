@@ -21,7 +21,7 @@ export default defineConfig({
 
   // #region fav
   head: [
-    ['link', { rel: 'icon', href: 'https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.png' }],
+    ['link', { rel: 'icon', href: 'https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.webp' }],
     ['script', { src: '//at.alicdn.com/t/c/font_5034970_orj705e6j3.js' }]
   ],
   // #endregion fav
@@ -165,7 +165,7 @@ export default defineConfig({
   //主题配置
   themeConfig: {
     //左上角logo
-    logo: 'https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.png',
+    logo: 'https://api.minio.1yo.cc/nebuluxe/halosparkpix/1759645609217.webp',
     //logo: 'https://vitejs.cn/vite3-cn/logo-with-shadow.png', //远程引用
     //siteTitle: false, //标题隐藏
 
