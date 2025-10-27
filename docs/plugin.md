@@ -1027,6 +1027,31 @@ graph LR
 更多使用方式，请查看 [VitePress Plugin Mermaid官网](https://emersonbottero.github.io/vitepress-plugin-mermaid/guide/more-examples.html)
 
 
+## vitepress-plugin-legend
+
+```markmap
+# 前端面试
+## HTML
+- 语义化标签
+- SEO 优化
+## CSS
+- Flex 布局
+- Grid 布局
+## JavaScript
+- 闭包
+- 事件循环
+```
+
+```mermaid
+sequenceDiagram
+    participant U as 用户
+    participant S as 服务器
+    U->>S: 请求登录
+    S-->>U: 返回 Token
+    U->>S: 携带 Token 请求数据
+    S-->>U: 返回用户数据
+```
+
 ## 评论
 
 从个人角度而言，[Giscus](https://giscus.app/zh-CN) 最佳，就用它演示，其他的这里就不赘述了

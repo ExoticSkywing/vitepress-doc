@@ -4,9 +4,12 @@ import DefaultTheme from 'vitepress/theme'
 // import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 // 进度条
 import { NProgress } from 'nprogress-v2/dist/index.js'
+// vitepress-plugin-legend
+import { initComponent } from 'vitepress-plugin-legend/component'
 // 样式
 import 'nprogress-v2/dist/index.css'
 import 'virtual:group-icons.css' //代码组样式
+import 'vitepress-plugin-legend/dist/index.css' //legend样式
 import './style/index.css' //自定义样式
 
 import { h } from 'vue' // h函数
@@ -52,6 +55,9 @@ export default {
   extends: DefaultTheme,
 
   enhanceApp({app , router }) {
+    // 初始化 vitepress-plugin-legend
+    initComponent(app)
+    
     // 注册全局组件
     app.component('MNavLinks' , MNavLinks) //导航
     app.component('HomeUnderline' , HomeUnderline) // 首页下划线
