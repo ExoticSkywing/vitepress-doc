@@ -1,61 +1,161 @@
+/* ==================== 侧边栏动画优化 ==================== */
+
 /* 侧边栏缩放 */
 .group:has([role='button']) .VPSidebarItem.level-0 .items {
     padding-left: 15px !important;
     border-left: 1px solid var(--vp-c-divider);
     border-radius: 2px;
-    transition: background-color 0.25s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+/* 侧边栏子项展开/折叠动画 */
+#VPSidebarNav .VPSidebarItem .items {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* 侧边栏项悬停效果 */
+#VPSidebarNav .VPSidebarItem > .item {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  padding: 4px 0;
+}
+
+#VPSidebarNav .VPSidebarItem > .item:hover {
+  background-color: var(--vp-c-bg-soft);
+  transform: translateX(2px);
+}
   
-  /* 侧边栏图标 */
-  /* 选中所有 .VPSidebarItem 元素，排除带有 .is-link 类的 */
-  #VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item {
-      display: inline-flex;
-      align-items: center;  /* 垂直居中对齐图标和文本 */
-  }
+/* ==================== 侧边栏图标样式 ==================== */
+
+/* 选中所有 .VPSidebarItem 元素，排除带有 .is-link 类的 */
+#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item {
+    display: inline-flex;
+    align-items: center;  /* 垂直居中对齐图标和文本 */
+}
+
+/* 为所有不带 .is-link 的 .VPSidebarItem 折叠状态添加图标 */
+#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item::before {
+    content: '';
+    background-image: url('/svg/document.svg'); /* 设置图标路径 */
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;  /* 确保图标与文本垂直居中 */
+    background-size: cover;
+    margin-right: 4px;  /* 给图标和文本之间增加间距 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.7;
+}
+
+/* 折叠状态图标悬停效果 */
+#VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item:hover::before {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#VPSidebarNav .VPSidebarItem:not(.is-link) >.item {
+    display: inline-flex;
+    align-items: center;  /* 垂直居中对齐图标和文本 */
+}
+
+/* 为所有不带 .is-link 的 .VPSidebarItem 非折叠状态添加图标 */
+#VPSidebarNav .VPSidebarItem:not(.is-link) >.item::before {
+    content: '';
+    background-image: url('/svg/document-open.svg'); /* 设置图标路径 */
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;  /* 确保图标与文本垂直居中 */
+    background-size: cover;
+    margin-right: 4px;  /* 给图标和文本之间增加间距 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.7;
+}
+
+/* 展开状态图标悬停效果 */
+#VPSidebarNav .VPSidebarItem:not(.is-link) >.item:hover::before {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+}
   
-  /* 为所有不带 .is-link 的 .VPSidebarItem 折叠状态添加图标 */
-  #VPSidebarNav .VPSidebarItem:not(.is-link).collapsed >.item::before {
-      content: '';
-      background-image: url('/svg/document.svg'); /* 设置图标路径 */
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      vertical-align: middle;  /* 确保图标与文本垂直居中 */
-      background-size: cover;
-      margin-right: 4px;  /* 给图标和文本之间增加间距 */
-  }
-  
-  #VPSidebarNav .VPSidebarItem:not(.is-link) >.item {
-      display: inline-flex;
-      align-items: center;  /* 垂直居中对齐图标和文本 */
-  }
-  
-  /* 为所有不带 .is-link 的 .VPSidebarItem 非折叠状态添加图标 */
-  #VPSidebarNav .VPSidebarItem:not(.is-link) >.item::before {
-      content: '';
-      background-image: url('/svg/document-open.svg'); /* 设置图标路径 */
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      vertical-align: middle;  /* 确保图标与文本垂直居中 */
-      background-size: cover;
-      margin-right: 4px;  /* 给图标和文本之间增加间距 */
-  }
-  
-  /* 选中带有 .is-link 的 .VPSidebarItem 的直接子元素 .item */
-  #VPSidebarNav .VPSidebarItem.is-link > .item {
-      display: inline-flex;
-      align-items: center;  /* 垂直居中图标和文字 */
-  }
-  
-  /* 为选中的 .item 添加图标 */
-  #VPSidebarNav .VPSidebarItem.is-link > .item::before {
-      content: '';
-      background-image: url('/svg/file.svg'); /* 图标路径 */
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      vertical-align: middle;
-      background-size: cover;
-      margin-right: 4px;  /* 图标与文字间距 */
-  }
+/* ==================== 文件链接图标样式 ==================== */
+
+/* 选中带有 .is-link 的 .VPSidebarItem 的直接子元素 .item */
+#VPSidebarNav .VPSidebarItem.is-link > .item {
+    display: inline-flex;
+    align-items: center;  /* 垂直居中图标和文字 */
+}
+
+/* 为选中的 .item 添加图标 */
+#VPSidebarNav .VPSidebarItem.is-link > .item::before {
+    content: '';
+    background-image: url('/svg/file_txt.svg'); /* 图标路径 */
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: cover;
+    margin-right: 4px;  /* 图标与文字间距 */
+    transition: all 0.2s ease;
+    opacity: 0.6;
+}
+
+/* 文件链接悬停效果 */
+#VPSidebarNav .VPSidebarItem.is-link > .item:hover::before {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+/* 当前激活的链接样式增强 */
+#VPSidebarNav .VPSidebarItem.is-link.is-active > .item {
+    font-weight: 600;
+    color: var(--vp-c-brand-1);
+}
+
+#VPSidebarNav .VPSidebarItem.is-link.is-active > .item::before {
+    opacity: 1;
+    filter: brightness(1.2);
+}
+
+/* ==================== 侧边栏点击反馈 ==================== */
+
+/* 点击时的视觉反馈 */
+#VPSidebarNav .VPSidebarItem > .item:active {
+    transform: scale(0.98);
+}
+
+/* 文本渐入效果 */
+#VPSidebarNav .VPSidebarItem .text {
+    transition: color 0.2s ease;
+}
+
+#VPSidebarNav .VPSidebarItem > .item:hover .text {
+    color: var(--vp-c-brand-1);
+}
+
+/* ==================== 层级缩进优化 ==================== */
+
+/* 为不同层级添加视觉区分 */
+#VPSidebarNav .VPSidebarItem.level-1 {
+    margin-left: 0;
+}
+
+#VPSidebarNav .VPSidebarItem.level-2 {
+    padding-left: 4px;
+    border-left: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+#VPSidebarNav .VPSidebarItem.level-2:hover {
+    border-left-color: var(--vp-c-brand-1);
+}
+
+#VPSidebarNav .VPSidebarItem.level-3 {
+    padding-left: 8px;
+}
+
+#VPSidebarNav .VPSidebarItem.level-4 {
+    padding-left: 12px;
+    opacity: 0.9;
+}
