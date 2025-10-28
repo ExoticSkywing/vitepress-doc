@@ -67,9 +67,17 @@ onMounted(() => {
   font-size: 15px;
 }
 
+.word p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .icon {
-    display: inline-block;
-    transform: translate(0px , 2px);
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 </style>
 
