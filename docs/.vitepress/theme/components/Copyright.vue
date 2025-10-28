@@ -66,7 +66,10 @@ const config = {
   authorName: '漫数花园',
   authorUrl: 'https://1yo.cc',
   siteName: '漫数花园',
-  siteUrl: 'https://wiki.manyuzuo.com',
+  // 根据环境自动切换域名
+  siteUrl: typeof window !== 'undefined' 
+    ? `${window.location.protocol}//${window.location.host}`
+    : 'https://wiki.manyuzuo.com',
   licenseName: 'CC BY-NC-SA 4.0',
   licenseUrl: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh',
   groupName: '技术交流群',
