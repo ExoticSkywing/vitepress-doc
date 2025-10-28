@@ -37,6 +37,14 @@ export default defineConfig({
   //启用深色模式
   appearance: 'dark',
 
+  // 配置远端nginx即可生效
+  // #VITEPRESS-CLEANURLS-START VitePress cleanUrls 支持配置
+  // location / {
+  //     try_files $uri $uri.html $uri/ /index.html;
+  // }
+  // #VITEPRESS-CLEANURLS-END
+
+  
   //多语言
   locales: {
     root: {
