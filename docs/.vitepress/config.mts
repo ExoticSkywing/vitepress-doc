@@ -32,7 +32,7 @@ export default defineConfig({
 
   base: '/', //网站部署到github的vitepress这个仓库里
 
-  // cleanUrls:true, //开启纯净链接无html
+  cleanUrls:true, //开启纯净链接无html
 
   //启用深色模式
   appearance: 'dark',
@@ -140,7 +140,7 @@ export default defineConfig({
         markmap: { showToolbar: true }, // 显示脑图工具栏
         mermaid: {} // 启用 Mermaid（使用默认配置）
       });
-
+      
       md.use(groupIconMdPlugin) //代码组图标
       md.use(markdownItTaskCheckbox) //todo
       md.use(MermaidMarkdown); 
@@ -516,50 +516,50 @@ export default defineConfig({
       // 默认侧边栏（用于指南等页面）
       '/': [
         {
-          text: '介绍',
+        text: '介绍',
           collapsed: true,
-          items: [
-            { text: '前言', link: '/preface' },
-          ],
-        },
-        {
-          text: '基础配置',
+        items: [
+          { text: '前言', link: '/preface' },
+        ],
+      },
+      {
+        text: '基础配置',
           collapsed: true,
-          items: [
-            { text: '快速上手', link: '/getting-started' },
-            { text: '配置', link: '/configuration' },
-            { text: '页面', link: '/page' },
-            { text: 'Frontmatter', link: '/frontmatter' },
-          ],
-        },
-        {
-          text: '进阶玩法',
+        items: [
+          { text: '快速上手', link: '/getting-started' },
+          { text: '配置', link: '/configuration' },
+          { text: '页面', link: '/page' },
+          { text: 'Frontmatter', link: '/frontmatter' },
+        ],
+      },
+      {
+        text: '进阶玩法',
           collapsed: true,
-          items: [
-            { text: 'Markdown', link: '/markdown' },
-            { text: '团队', link: '/team' },
-            { text: '多语言', link: '/multi-language' },
-            { text: 'DocSearch', link: '/docsearch' },
-            { text: '静态部署', link: '/assets' },
-            { text: '样式美化', link: '/style' },
-            { text: '组件', link: '/components' },
-            { text: '布局插槽', link: '/layout' },
-            { text: '插件', link: '/plugin' },
-            { text: '更新及卸载', link: '/update' },
-            { text: '搭建导航', link: '/nav/' },
-            { text: '永久链接', link: '/permalink/' },
-          ],
-        },
-        {
-          text: '其他站点',
+        items: [
+          { text: 'Markdown', link: '/markdown' },
+          { text: '团队', link: '/team' },
+          { text: '多语言', link: '/multi-language' },
+          { text: 'DocSearch', link: '/docsearch' },
+          { text: '静态部署', link: '/assets' },
+          { text: '样式美化', link: '/style' },
+          { text: '组件', link: '/components' },
+          { text: '布局插槽', link: '/layout' },
+          { text: '插件', link: '/plugin' },
+          { text: '更新及卸载', link: '/update' },
+          { text: '搭建导航', link: '/nav/' },
+          { text: '永久链接', link: '/permalink/' },
+        ],
+      },
+      {
+        text: '其他站点',
           collapsed: true,
-          items: [
-            { text: 'VuePress', link: 'https://vuepress.yiov.top/' },
-            { text: '劝学录教程', link: 'https://yiov.top/' },
-            { text: '个人主页', link: 'https://yingyayi.com/' },
-          ],
-        },
-      ],
+        items: [
+          { text: 'VuePress', link: 'https://vuepress.yiov.top/' },
+          { text: '劝学录教程', link: 'https://yiov.top/' },
+          { text: '个人主页', link: 'https://yingyayi.com/' },
+        ],
+      },
+    ],
     },
     */
 
