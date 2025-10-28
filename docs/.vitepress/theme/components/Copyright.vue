@@ -41,16 +41,17 @@
           </span>
         </div>
 
-        <!-- 群聊信息 -->
-        <div class="copyright-item">
-          <span class="copyright-meta">
+        <!-- 群聊信息 - 突出显示 -->
+        <div class="copyright-item copyright-item-highlight">
+          <div class="highlight-content">
             <span class="copyright-icon copyright-icon-group"></span>
-            <span class="meta-text">交流</span>:
-          </span>
-          <span class="copyright-info">
-            若遇问题，加入群聊一起探讨：
-            <a :href="config.groupUrl" target="_blank" rel="noopener">{{ config.groupName }}</a>
-          </span>
+            <span class="highlight-text">
+              若遇问题，加入聊天室一起探讨：
+              <a :href="config.groupUrl" target="_blank" rel="noopener" class="group-link-highlight">
+                {{ config.groupName }}<span class="link-badge">🔥</span>
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -72,8 +73,8 @@ const config = {
     : 'https://wiki.manyuzuo.com',
   licenseName: 'CC BY-NC-SA 4.0',
   licenseUrl: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh',
-  groupName: '技术交流群',
-  groupUrl: 'https://jq.qq.com/?_wv=1027&k=your-group-code' // 替换为你的群聊链接
+  groupName: '云上聊天室',
+  groupUrl: 'https://chat.1yo.cc' // 替换为你的群聊链接
 }
 
 // 获取 frontmatter 和路由
@@ -197,6 +198,99 @@ const currentUrl = computed(() => {
 .copyright-icon-public::before { content: '📡'; }
 .copyright-icon-group::before { content: '💬'; }
 
+/* ==================== 交流项高亮样式 ==================== */
+
+/* 突出显示的交流项 */
+.copyright-item-highlight {
+  margin-top: 6px;
+  padding: 12px 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--vp-c-brand-1-rgb, 66, 184, 131), 0.08),
+    rgba(var(--vp-c-brand-2-rgb, 52, 168, 83), 0.05)
+  );
+  border-left: 3px solid var(--vp-c-brand-1);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* 脉动边框动画 */
+@keyframes pulse-border {
+  0%, 100% {
+    border-left-color: var(--vp-c-brand-1);
+    box-shadow: 0 0 0 0 rgba(var(--vp-c-brand-1-rgb, 66, 184, 131), 0.4);
+  }
+  50% {
+    border-left-color: var(--vp-c-brand-2);
+    box-shadow: 0 0 0 4px rgba(var(--vp-c-brand-1-rgb, 66, 184, 131), 0);
+  }
+}
+
+/* 高亮内容布局 */
+.highlight-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.6;
+}
+
+.highlight-text {
+  display: inline;
+  line-height: 1.6;
+}
+
+/* 交流链接特殊样式 */
+.group-link-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 10px;
+  margin-left: 4px;
+  background: var(--vp-c-brand-1);
+  color: white !important;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(var(--vp-c-brand-1-rgb, 66, 184, 131), 0.25);
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.group-link-highlight:hover {
+  background: var(--vp-c-brand-2);
+  color: white !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(var(--vp-c-brand-1-rgb, 66, 184, 131), 0.4);
+  text-decoration: none !important;
+}
+
+/* 链接徽章（火焰图标）动画 */
+.link-badge {
+  display: inline-block;
+  animation: bounce 1.5s ease-in-out infinite;
+  margin-left: 2px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.05);
+  }
+}
+
+/* 暗色主题适配 */
+.dark .copyright-item-highlight {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--vp-c-brand-1-rgb, 66, 184, 131), 0.15),
+    rgba(var(--vp-c-brand-2-rgb, 52, 168, 83), 0.08)
+  );
+}
+
 /* 移动端适配 */
 @media (max-width: 768px) {
   .copyright-card {
@@ -217,6 +311,20 @@ const currentUrl = computed(() => {
 
   .meta-text {
     font-size: 0.95em;
+  }
+
+  .copyright-item-highlight {
+    padding: 10px 12px;
+  }
+
+  .highlight-content {
+    gap: 6px;
+  }
+
+  .group-link-highlight {
+    padding: 2px 8px;
+    font-size: 0.95em;
+    margin-left: 2px;
   }
 }
 
