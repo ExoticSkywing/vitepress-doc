@@ -630,7 +630,7 @@ export default defineConfig({
 
     //社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Yiov/vitepress-doc' },
+      { icon: 'github', link: 'https://github.com/LMuniverse' },
       { icon: 'wechat', link: 'https://chat.1yo.cc', ariaLabel: '云上聊天室' },
       // { icon: 'twitter', link: 'https://twitter.com/' },
       // { icon: 'discord', link: 'https://chat.vitejs.dev/' },

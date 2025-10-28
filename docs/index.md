@@ -17,13 +17,13 @@ hero:
       link: /gate-guide
     - theme: alt
       text: GitHub
-      link: https://github.com/Yiov/vitepress-doc
+      link: https://github.com/LMuniverse
     - theme: sponsor
-      text: 搭建导航
-      link: /nav/
+      text: 音乐
+      link: https://yue.1yo.cc
 
 features:
-  - icon: <svg class="icon icon-xl"><use xlink:href="#icon-makalong"></use></svg>
+  - icon: <svg class="icon icon-lg"><use xlink:href="#icon-makalong"></use></svg>
     title: 自我提升 | 心智&认知
     details: 人生需要回头看，才知道未来该怎么走，因为能找回最具真实感受的你
   - icon: 
@@ -33,10 +33,10 @@ features:
     details: 即时服务器启动，闪电般快速的热更新，并利用 Vite 生态插件。
     link: https://vitejs.cn/
     linkText: Vite
-  - icon: <svg class="icon icon-xl"><use xlink:href="#icon-a-029-drink"></use></svg>
+  - icon: <svg class="icon icon-lg"><use xlink:href="#icon-a-029-drink"></use></svg>
     title: 使用 Vue 进行定制
     details: 直接在 Markdown 中使用 Vue 语法和组件，或使用 Vue 构建自定义主题
-  - icon: <svg class="icon icon-xl"><use xlink:href="#icon-xunzhang"></use></svg>
+  - icon: <svg class="icon icon-lg"><use xlink:href="#icon-xunzhang"></use></svg>
     title: 快速发布网站
     details: 使用静态 HTML 进行快速初始加载，使用客户端路由进行快速加载后导航
 ---

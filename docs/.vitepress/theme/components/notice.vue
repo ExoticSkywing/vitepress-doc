@@ -20,8 +20,8 @@ setTimeout(function () { visible.value = false }, 5000);
             <p>本次更新：新公告样式</p>
             <p class="notice-domain">
                 <strong>
-                    详细教程：<a href="https://vitepress.yiov.top/layout.html#%E5%85%AC%E5%91%8A"
-                        target="_blank">vitepress.yiov.top</a>
+                    详细教程：<a href="https://chat.1yo.cc"
+                        target="_blank">加入在线群聊</a>
                 </strong>
             </p>
             <p>QQ 频道：******(无效二维码)</p>
