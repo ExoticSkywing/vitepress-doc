@@ -14,6 +14,9 @@ export default defineConfig({
   title: "漫数花园",
   description: "记录数字世界",
   rewrites,
+  
+  // 忽略死链接检查（开发阶段）
+  ignoreDeadLinks: true,
 
   //网站地图
   sitemap: {
@@ -195,7 +198,7 @@ export default defineConfig({
 
     //导航栏
     nav: [
-      { text: '首页', link: '/' },
+      { text: '🏠 首页', link: '/' },
       {
         text: '🔧 纯开发向',
         items: [
