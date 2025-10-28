@@ -4,7 +4,8 @@ import { devDependencies } from '../../package.json'
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
-
+import { vitepressPluginLegend  } from 'vitepress-plugin-legend';
+import { generateSidebar } from 'vitepress-sidebar';
 import { usePosts } from './theme/untils/permalink';
 const { rewrites } = await usePosts();
 
@@ -57,7 +58,7 @@ export default defineConfig({
     lineNumbers: true,
 
     // toc显示一级标题
-    toc: {level: [1,2,3]},
+    toc: {level: [2,3,4,5,6]},
 
     // 使用 `!!code` 防止转换
     codeTransformers: [
@@ -132,6 +133,11 @@ export default defineConfig({
         };
       })
       
+      vitepressPluginLegend(md, {
+        markmap: { showToolbar: true }, // 显示脑图工具栏
+        mermaid: {} // 启用 Mermaid（使用默认配置）
+      });
+
       md.use(groupIconMdPlugin) //代码组图标
       md.use(markdownItTaskCheckbox) //todo
       md.use(MermaidMarkdown); 
@@ -191,15 +197,24 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '📚 指南',  // 使用书籍 emoji 更贴切
+        text: '🔧 纯开发向',
+        items: [
+          { text: '💾 后端', link: '/backend/' },
+          { text: '🚀 运维', link: '/devops/' },
+          { text: '🎨 前端', link: '/frontend/' },
+        ],
+      },
+      {
+        text: '📖 关于本站',
         items: [
           {
             // 分组标题1
-            text: '介绍',
+            text: '开发者相关',
             items: [
-              { text: '前言', link: '/preface' },
+              { text: '📚 搭建指南', link: '/deploy-guide' },
             ],
           },
+          /*
           {
             // 分组标题2
             text: '基础设置',
@@ -228,64 +243,322 @@ export default defineConfig({
               { text: '永久链接', link: '/permalink/' },
             ],
           },
+          */
         ],
       },
-      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
-      { text: '更新日志', link: '/changelog' },
+      { text: '更新日志', link: '/deploy-guide/changelog' },
     ],
 
 
-    //侧边栏
-    sidebar: [
+    //侧边栏 - 自动生成配置
+    sidebar: generateSidebar([
       {
-        //分组标题1
-        text: '介绍',
-        collapsed: false,
-        items: [
-          { text: '前言', link: '/preface' },
-        ],
+        documentRootPath: '/docs',
+        scanStartPath: 'backend',
+        resolvePath: '/backend/',
+        useTitleFromFileHeading: true,
+        useTitleFromFrontmatter: true,
+        hyphenToSpace: true,
+        underscoreToSpace: true,
+        collapsed: true,
+        collapseDepth: 2,
+        sortMenusByFrontmatterOrder: true,
+        // 去除数字前缀（如 01.cpp → cpp）
+        removePrefixAfterOrdering: true,
+        prefixSeparator: '.',
       },
       {
-        //分组标题2
-        text: '基础配置',
-        collapsed: false,
-        items: [
-          { text: '快速上手', link: '/getting-started' },
-          { text: '配置', link: '/configuration' },
-          { text: '页面', link: '/page' },
-          { text: 'Frontmatter', link: '/frontmatter' },
-        ],
+        documentRootPath: '/docs',
+        scanStartPath: 'devops',
+        resolvePath: '/devops/',
+        useTitleFromFileHeading: true,
+        useTitleFromFrontmatter: true,
+        hyphenToSpace: true,
+        underscoreToSpace: true,
+        collapsed: true,
+        collapseDepth: 2,
+        sortMenusByFrontmatterOrder: true,
+        // 去除数字前缀
+        removePrefixAfterOrdering: true,
+        prefixSeparator: '.',
       },
       {
-        //分组标题3
-        text: '进阶玩法',
-        collapsed: false,
-        items: [
-          { text: 'Markdown', link: '/markdown' },
-          { text: '团队', link: '/team' },
-          { text: '多语言', link: '/multi-language' },
-          { text: 'DocSearch', link: '/docsearch' },
-          { text: '静态部署', link: '/assets' },
-          { text: '样式美化', link: '/style' },
-          { text: '组件', link: '/components' },
-          { text: '布局插槽', link: '/layout' },
-          { text: '插件', link: '/plugin' },
-          { text: '更新及卸载', link: '/update' },
-          { text: '搭建导航', link: '/nav/' },
-          { text: '永久链接', link: '/permalink/' },
-        ],
+        documentRootPath: '/docs',
+        scanStartPath: 'frontend',
+        resolvePath: '/frontend/',
+        useTitleFromFileHeading: true,
+        useTitleFromFrontmatter: true,
+        hyphenToSpace: true,
+        underscoreToSpace: true,
+        collapsed: true,
+        collapseDepth: 2,
+        sortMenusByFrontmatterOrder: true,
+        // 去除数字前缀
+        removePrefixAfterOrdering: true,
+        prefixSeparator: '.',
       },
       {
-        //分组标题3
-        text: '其他站点',
-        collapsed: false,
-        items: [
-          { text: 'VuePress', link: 'https://vuepress.yiov.top/' },
-          { text: '劝学录教程', link: 'https://yiov.top/' },
-          { text: '个人主页', link: 'https://yingyayi.com/' },
-        ],
+        // 部署指南侧边栏
+        documentRootPath: '/docs',
+        scanStartPath: 'deploy-guide',
+        resolvePath: '/deploy-guide/',
+        useTitleFromFileHeading: true,
+        useTitleFromFrontmatter: true,
+        hyphenToSpace: true,
+        underscoreToSpace: true,
+        collapsed: true,
+        collapseDepth: 2,
+        sortMenusByFrontmatterOrder: true,
+        // 去除数字前缀
+        removePrefixAfterOrdering: true,
+        prefixSeparator: '.',
       },
-    ],
+      {
+        // 默认侧边栏（指南等页面）
+        documentRootPath: '/docs',
+        scanStartPath: null,
+        resolvePath: '/',
+        useTitleFromFileHeading: true,
+        useTitleFromFrontmatter: true,
+        hyphenToSpace: true,
+        underscoreToSpace: true,
+        collapsed: true,
+        collapseDepth: 2,
+        excludeFolders: ['backend', 'devops', 'frontend', 'deploy-guide', 'public', 'node_modules', '.vitepress'],
+        sortMenusByFrontmatterOrder: true,
+        // 去除数字前缀
+        removePrefixAfterOrdering: true,
+        prefixSeparator: '.',
+      }
+    ]),
+    
+    /* 
+    ========================================
+    旧的手动配置已被自动生成替代，保留备份
+    ========================================
+    sidebar_manual: {
+      // 后端开发侧边栏
+      '/backend/': [
+        {
+          text: '💾 后端开发',
+          items: [
+            { text: '概述', link: '/backend/' },
+          ],
+        },
+        {
+          text: 'C++',
+          collapsed: true,
+          items: [
+            { text: 'C++ 简介', link: '/backend/cpp/intro' },
+          ],
+        },
+        {
+          text: 'Python',
+          collapsed: true,
+          items: [
+            { text: 'Python 简介', link: '/backend/python/intro' },
+          ],
+        },
+        {
+          text: 'Java',
+          collapsed: true,
+          items: [
+            { text: 'Java 基础', link: '/backend/java/intro' },
+          ],
+        },
+        {
+          text: 'Go',
+          collapsed: true,
+          items: [
+            { text: 'Go 入门', link: '/backend/go/intro' },
+          ],
+        },
+      ],
+
+      // 运维侧边栏
+      '/devops/': [
+        {
+          text: '🚀 运维',
+          items: [
+            { text: '概述', link: '/devops/' },
+          ],
+        },
+        {
+          text: '数据库',
+          collapsed: true,
+          items: [
+            { text: '数据库概述', link: '/devops/database/' },
+            {
+              text: 'MySQL',
+              collapsed: true,
+              items: [
+                { text: 'MySQL 概述', link: '/devops/database/mysql/' },
+                {
+                  text: '安装部署',
+                  collapsed: true,
+                  items: [
+                    { text: 'Windows 安装', link: '/devops/database/mysql/install/windows' },
+                    { text: 'Linux 安装', link: '/devops/database/mysql/install/linux' },
+                    { text: 'Docker 安装', link: '/devops/database/mysql/install/docker' },
+                  ],
+                },
+                {
+                  text: '配置管理',
+                  collapsed: true,
+                  items: [
+                    { text: '基础配置', link: '/devops/database/mysql/config/basic' },
+                    { text: '性能配置', link: '/devops/database/mysql/config/performance' },
+                  ],
+                },
+                {
+                  text: '使用教程',
+                  collapsed: true,
+                  items: [
+                    { text: '基础 SQL', link: '/devops/database/mysql/usage/basic-sql' },
+                  ],
+                },
+                {
+                  text: '性能优化',
+                  collapsed: true,
+                  items: [
+                    { text: '索引优化', link: '/devops/database/mysql/optimize/index-optimize' },
+                  ],
+                },
+              ],
+            },
+            {
+              text: 'Oracle',
+              collapsed: true,
+              items: [
+                { text: 'Oracle 安装', link: '/devops/database/oracle/install' },
+              ],
+            },
+            {
+              text: 'MongoDB',
+              collapsed: true,
+              items: [
+                { text: 'MongoDB 入门', link: '/devops/database/mongodb/intro' },
+              ],
+            },
+            {
+              text: 'Redis',
+              collapsed: true,
+              items: [
+                { text: 'Redis 入门', link: '/devops/database/redis/intro' },
+              ],
+            },
+          ],
+        },
+        {
+          text: 'Linux',
+          collapsed: true,
+          items: [
+            { text: 'Linux 简介', link: '/devops/linux/intro' },
+          ],
+        },
+        {
+          text: 'Docker',
+          collapsed: true,
+          items: [
+            { text: 'Docker 入门', link: '/devops/docker/intro' },
+          ],
+        },
+        {
+          text: 'Kubernetes',
+          collapsed: true,
+          items: [
+            { text: 'K8s 入门', link: '/devops/kubernetes/intro' },
+          ],
+        },
+      ],
+
+      // 前端开发侧边栏
+      '/frontend/': [
+        {
+          text: '🎨 前端开发',
+          items: [
+            { text: '概述', link: '/frontend/' },
+          ],
+        },
+        {
+          text: 'Vue',
+          collapsed: true,
+          items: [
+            { text: 'Vue 基础', link: '/frontend/vue/intro' },
+          ],
+        },
+        {
+          text: 'React',
+          collapsed: true,
+          items: [
+            { text: 'React 基础', link: '/frontend/react/intro' },
+          ],
+        },
+        {
+          text: 'CSS',
+          collapsed: true,
+          items: [
+            { text: 'CSS 基础', link: '/frontend/css/intro' },
+          ],
+        },
+        {
+          text: 'JavaScript',
+          collapsed: true,
+          items: [
+            { text: 'JS 基础', link: '/frontend/javascript/intro' },
+          ],
+        },
+      ],
+
+      // 默认侧边栏（用于指南等页面）
+      '/': [
+        {
+          text: '介绍',
+          collapsed: true,
+          items: [
+            { text: '前言', link: '/preface' },
+          ],
+        },
+        {
+          text: '基础配置',
+          collapsed: true,
+          items: [
+            { text: '快速上手', link: '/getting-started' },
+            { text: '配置', link: '/configuration' },
+            { text: '页面', link: '/page' },
+            { text: 'Frontmatter', link: '/frontmatter' },
+          ],
+        },
+        {
+          text: '进阶玩法',
+          collapsed: true,
+          items: [
+            { text: 'Markdown', link: '/markdown' },
+            { text: '团队', link: '/team' },
+            { text: '多语言', link: '/multi-language' },
+            { text: 'DocSearch', link: '/docsearch' },
+            { text: '静态部署', link: '/assets' },
+            { text: '样式美化', link: '/style' },
+            { text: '组件', link: '/components' },
+            { text: '布局插槽', link: '/layout' },
+            { text: '插件', link: '/plugin' },
+            { text: '更新及卸载', link: '/update' },
+            { text: '搭建导航', link: '/nav/' },
+            { text: '永久链接', link: '/permalink/' },
+          ],
+        },
+        {
+          text: '其他站点',
+          collapsed: true,
+          items: [
+            { text: 'VuePress', link: 'https://vuepress.yiov.top/' },
+            { text: '劝学录教程', link: 'https://yiov.top/' },
+            { text: '个人主页', link: 'https://yingyayi.com/' },
+          ],
+        },
+      ],
+    },
+    */
 
 
 
@@ -373,7 +646,7 @@ export default defineConfig({
 
 
     //侧边栏文字更改(移动端)
-    sidebarMenuLabel: '目录',
+    sidebarMenuLabel: '查看分类',
 
     //返回顶部文字修改(移动端)
     returnToTopLabel: '返回顶部',
@@ -381,8 +654,8 @@ export default defineConfig({
 
     //大纲显示2-3级标题
     outline: {
-      level: [2, 3],
-      label: '当前页大纲'
+      level: [2, 3, 4],
+      label: '本页导航'
     },
 
 
