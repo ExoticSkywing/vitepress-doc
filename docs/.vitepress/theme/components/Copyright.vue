@@ -45,12 +45,12 @@
         <div class="copyright-item copyright-item-highlight">
           <div class="highlight-content">
             <span class="copyright-icon copyright-icon-group"></span>
-            <span class="highlight-text">
-              若遇问题，加入聊天室一起探讨：
+            <div class="highlight-wrapper">
+              <div class="highlight-text">若遇问题，加入聊天室一起探讨：</div>
               <a :href="config.groupUrl" target="_blank" rel="noopener" class="group-link-highlight">
                 {{ config.groupName }}<span class="link-badge">🔥</span>
               </a>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -236,6 +236,13 @@ const currentUrl = computed(() => {
   line-height: 1.6;
 }
 
+/* 桌面端包装器：横向布局 */
+.highlight-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
 .highlight-text {
   display: inline;
   line-height: 1.6;
@@ -314,17 +321,58 @@ const currentUrl = computed(() => {
   }
 
   .copyright-item-highlight {
-    padding: 10px 12px;
+    padding: 14px 65px;
   }
 
   .highlight-content {
-    gap: 6px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  /* 移动端隐藏图标，让布局更简洁 */
+  .copyright-icon-group {
+    display: none;
+  }
+
+  /* 移动端包装器：居中所有内容 */
+  .highlight-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .highlight-text {
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin: 10px;
+    padding: 0;
   }
 
   .group-link-highlight {
-    padding: 2px 8px;
-    font-size: 0.95em;
-    margin-left: 2px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 24px;
+    font-size: 1em;
+    margin: 0 auto;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(var(--vp-c-brand-1-rgb, 66, 184, 131), 0.35);
+  }
+
+  .group-link-highlight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(var(--vp-c-brand-1-rgb, 66, 184, 131), 0.5);
+  }
+
+  .link-badge {
+    font-size: 1.15em;
+    margin-left: 4px;
   }
 }
 
