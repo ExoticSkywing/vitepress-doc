@@ -48,13 +48,13 @@
 
 /* 超大号图标 - 32px */
 .icon-xl {
-  width: 32px;
-  height: 32px;
+  width: 68px;
+  height: 68px;
   display: inline-block;
   vertical-align: middle;
   position: relative;
   top: -2px;
-  margin-right: 6px;
+  margin-right: 0.5px;
 }
 
 /* 自定义小尺寸（不同场景调整 top 值） */
