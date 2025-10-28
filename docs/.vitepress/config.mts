@@ -3,10 +3,10 @@ import { defineConfig } from 'vitepress'
 import { devDependencies } from '../../package.json'
 import markdownItTaskCheckbox from 'markdown-it-task-checkbox'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
-import { MermaidMarkdown, MermaidPlugin } from 'vitepress-plugin-mermaid';
 import { vitepressPluginLegend  } from 'vitepress-plugin-legend';
 import { generateSidebar } from 'vitepress-sidebar';
 import { usePosts } from './theme/untils/permalink';
+import vitepressProtectPlugin from 'vitepress-protect-plugin';
 const { rewrites } = await usePosts();
 
 export default defineConfig({
@@ -44,7 +44,7 @@ export default defineConfig({
   // }
   // #VITEPRESS-CLEANURLS-END
 
-  
+
   //多语言
   locales: {
     root: {
@@ -151,7 +151,6 @@ export default defineConfig({
       
       md.use(groupIconMdPlugin) //代码组图标
       md.use(markdownItTaskCheckbox) //todo
-      md.use(MermaidMarkdown); 
 
     }
 
@@ -167,7 +166,11 @@ export default defineConfig({
           js: 'logos:javascript', //js图标
         },
       }),
-      [MermaidPlugin()]
+      vitepressProtectPlugin({
+        disableF12: true,    // 禁用 F12 开发者工具
+        disableCopy: false,   // 禁用文本复制
+        disableSelect: false, // 禁用文本选择
+      })
     ]as any,
     optimizeDeps: {
       include: ['mermaid'],
