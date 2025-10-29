@@ -661,7 +661,7 @@ export default defineConfig({
 
 
     //侧边栏文字更改(移动端)
-    sidebarMenuLabel: '查看分类',
+    sidebarMenuLabel: '🗂️ 查看分类',
 
     //返回顶部文字修改(移动端)
     returnToTopLabel: '返回顶部',
@@ -670,7 +670,7 @@ export default defineConfig({
     //大纲显示2-3级标题
     outline: {
       level: [2, 3, 4],
-      label: '本页导航'
+      label: '📋 本页目录'
     },
 
 
