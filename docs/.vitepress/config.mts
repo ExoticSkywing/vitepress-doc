@@ -214,10 +214,11 @@ export default defineConfig({
         text: '🔧 纯开发向',
         items: [
           { text: '💾 后端', link: '/backend/' },
-          { text: '🚀 运维', link: '/devops/' },
+          { text: '💻 运维', link: '/devops/' },
           { text: '🎨 前端', link: '/frontend/' },
         ],
       },
+      { text: '🚀 前沿科技', link: '/cutting-edge-tech/' },
       {
         text: '📖 关于本站',
         items: [
@@ -312,6 +313,22 @@ export default defineConfig({
         prefixSeparator: '.',
       },
       {
+        // 前沿科技侧边栏
+        documentRootPath: '/docs',
+        scanStartPath: 'cutting-edge-tech',
+        resolvePath: '/cutting-edge-tech/',
+        useTitleFromFileHeading: true,
+        useTitleFromFrontmatter: true,
+        hyphenToSpace: true,
+        underscoreToSpace: true,
+        collapsed: true,
+        collapseDepth: 2,
+        sortMenusByFrontmatterOrder: true,
+        // 去除数字前缀
+        removePrefixAfterOrdering: true,
+        prefixSeparator: '.',
+      },
+      {
         // 部署指南侧边栏
         documentRootPath: '/docs',
         scanStartPath: 'deploy-guide',
@@ -338,7 +355,7 @@ export default defineConfig({
         underscoreToSpace: true,
         collapsed: true,
         collapseDepth: 2,
-        excludeFolders: ['backend', 'devops', 'frontend', 'deploy-guide', 'public', 'node_modules', '.vitepress'],
+        excludeFolders: ['backend', 'devops', 'frontend', 'cutting-edge-tech', 'deploy-guide', 'public', 'node_modules', '.vitepress'],
         sortMenusByFrontmatterOrder: true,
         // 去除数字前缀
         removePrefixAfterOrdering: true,
