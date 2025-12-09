@@ -7,4 +7,4 @@
 
 ## 访问
 
-[漫数花园](https://wiki.manyuzo,com)
+[漫数花园](https://wiki.manyuzo.com)
